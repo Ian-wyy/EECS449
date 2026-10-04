@@ -120,6 +120,16 @@ Coming up  (plan ls for everything)
 
 To use the CLI against another server, pass `--server URL` or set `STUDYPILOT_SERVER`. Tip: `alias plan="$PWD/plan"`.
 
+### 4. Check that the parts work together (about 5 minutes)
+
+Changes made on one client show up on the others after you click **Sync** on the web or pull to refresh on the phone.
+
+1. **Web.** Run `jac run`, open http://localhost:8000, create the account `tester`, then quick-add `Read ch.4 #EECS449 !high @tmr ~1h`. It is filed under the course **EECS449** and due **Tomorrow**.
+2. **CLI.** In a second terminal, run `./plan login tester`, then `./plan add Lab report '#EECS370' @fri '~2h'` and `./plan done 1`. In the browser, click **Sync**: the new task and the check mark both appear.
+3. **Mobile.** In a third terminal, run `jac run --platform web --port 8100 mobile`, open http://localhost:8100 and sign in as `tester`. You see the same tasks. Tap a task, choose **Tomorrow**, then **Sync** the web app to see the new date.
+4. **Persistence.** Stop `jac run` with Ctrl+C, start it again and sign in. Everything is still there.
+5. **Tests.** `jac test` reports 37 passed.
+
 ---
 
 ## How the four parts fit together
