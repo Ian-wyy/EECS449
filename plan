@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# StudyPilot CLI launcher: ./plan today, ./plan add "Read ch. 4 #EECS449 @fri ~1h", ...
+cd "$(dirname "$(readlink -f "$0")")" && exec jac run cli -- "$@"
